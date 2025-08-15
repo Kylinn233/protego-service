@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise Services & Maintenance</title>
+    <title>Contact Us - Enterprise Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -21,139 +21,65 @@
             --dark: #343a40;
             --gray: #6c757d;
             --border: #dee2e6;
+            --success: #28a745;
+            --error: #dc3545;
             --transition: all 0.3s ease;
         }
         
         body {
-            background-color: #f5f7fa;
+            background: linear-gradient(135deg, #f5f7fa, #e6e9ed);
             color: var(--dark);
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
             transition: var(--transition);
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
         
-        /* Header Styles */
+        /* Header */
         header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: var(--transition);
-        }
-        
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
+            justify-content: center;
             transition: var(--transition);
         }
         
         .logo i {
-            margin-right: 10px;
+            margin-right: 15px;
             color: var(--accent);
-        }
-        
-        .logo span {
-            color: var(--accent);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 25px;
-            position: relative;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .nav-links a i {
-            margin-right: 5px;
-            font-size: 0.9em;
-        }
-        
-        .dropdown {
-            position: relative;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            z-index: 1;
-            border-radius: 5px;
-            top: 100%;
-            left: 0;
-            padding: 10px 0;
-            animation: fadeIn 0.3s;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        
-        .dropdown-content a {
-            padding: 10px 20px;
-            display: block;
-            color: var(--gray);
-            transition: var(--transition);
-        }
-        
-        .dropdown-content a:hover {
-            background-color: #f8f9fa;
-            color: var(--primary);
         }
         
         .language-selector {
             display: flex;
-            align-items: center;
-            position: relative;
-        }
-        
-        .language-flags {
-            display: flex;
-            gap: 10px;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .lang-btn {
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -163,8 +89,9 @@
             border: 2px solid transparent;
             overflow: hidden;
             font-weight: bold;
-            font-size: 12px;
+            font-size: 14px;
             color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
         .lang-btn.active {
@@ -188,268 +115,49 @@
             background: linear-gradient(135deg, #DE2910, #FFDE00);
         }
         
-        /* Hero Section */
-        .hero {
+        /* Contact Section */
+        .contact-section {
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transition: var(--transition);
+        }
+        
+        .contact-header {
             background: linear-gradient(135deg, var(--primary), #003d82);
             color: white;
-            padding: 100px 0;
+            padding: 30px;
             text-align: center;
-            transition: var(--transition);
         }
         
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 14px 35px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-        
-        .cta-button:hover {
-            background-color: #e05a00;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        /* Services Section */
-        .services-section {
-            padding: 100px 0;
-            background-color: white;
-            transition: var(--transition);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            color: var(--primary);
+        .contact-header h1 {
             font-size: 2.2rem;
-            position: relative;
+            margin-bottom: 10px;
         }
         
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            margin: 15px auto;
-            border-radius: 2px;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .service-card {
-            background: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            border-top: 4px solid var(--primary);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-        }
-        
-        .service-icon {
-            background: white;
-            color: var(--primary);
-            font-size: 2.5rem;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .service-content {
-            padding: 30px;
-        }
-        
-        .service-content h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-            font-size: 1.5rem;
-        }
-        
-        .service-content p {
-            color: var(--gray);
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-        
-        .service-features {
-            list-style: none;
-            margin: 20px 0;
-        }
-        
-        .service-features li {
-            padding: 10px 0;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px dashed var(--border);
-        }
-        
-        .service-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .service-features li i {
-            color: var(--accent);
-            margin-right: 10px;
-            min-width: 20px;
-        }
-        
-        /* Products Section */
-        .products-section {
-            padding: 100px 0;
-            background-color: #f0f4f8;
-            transition: var(--transition);
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: var(--transition);
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .product-header {
-            background: var(--secondary);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .product-header h3 {
-            font-size: 1.6rem;
-        }
-        
-        .product-body {
-            padding: 30px;
-        }
-        
-        .product-features {
-            list-style: none;
-            margin: 20px 0;
-        }
-        
-        .product-features li {
-            padding: 12px 0;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .product-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .product-features li i {
-            color: var(--accent);
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .product-price {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 25px 0;
-        }
-        
-        .product-price span {
-            font-size: 1rem;
-            font-weight: normal;
-            color: var(--gray);
-        }
-        
-        .product-button {
-            display: block;
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 12px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            margin-top: 20px;
-        }
-        
-        .product-button:hover {
-            background: #004494;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .contact-header p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .divider {
-            height: 1px;
-            background: var(--border);
-            margin: 40px 0;
-        }
-        
-        /* Contact Form */
-        .contact-section {
-            padding: 100px 0;
-            background: white;
-            transition: var(--transition);
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            margin: 10px 0 20px;
         }
         
         .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--light);
-            border-radius: 15px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: var(--transition);
         }
         
         .form-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             color: var(--primary);
-            font-size: 1.8rem;
+            font-size: 1.6rem;
         }
         
         .form-row {
@@ -473,11 +181,18 @@
             margin-bottom: 10px;
             font-weight: 600;
             color: var(--dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        label i {
+            margin-right: 10px;
+            color: var(--primary);
         }
         
         label.required:after {
             content: " *";
-            color: #e63946;
+            color: var(--error);
         }
         
         input, select, textarea {
@@ -487,86 +202,20 @@
             border-radius: 8px;
             font-size: 1.05rem;
             transition: var(--transition);
+            background: #f8fafc;
         }
         
         input:focus, select:focus, textarea:focus {
             border-color: var(--primary);
             outline: none;
             box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+            background: white;
         }
         
         .prefilled {
             background-color: #f0f4f8;
             color: var(--gray);
             font-weight: 500;
-        }
-        
-        .file-upload {
-            border: 1px dashed var(--border);
-            border-radius: 8px;
-            padding: 25px;
-            text-align: center;
-            background: white;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .file-upload:hover {
-            border-color: var(--primary);
-            background: #f8fbff;
-        }
-        
-        .file-upload i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .file-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
-            justify-content: center;
-        }
-        
-        .file-action {
-            background: #e9ecef;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            color: var(--dark);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .file-action:hover {
-            background: #d8dde2;
-        }
-        
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            margin: 20px 0;
-        }
-        
-        .checkbox-group input {
-            width: auto;
-            margin-right: 12px;
-        }
-        
-        .human-verification {
-            display: flex;
-            align-items: center;
-            margin: 25px 0;
-            padding: 20px;
-            background: #e8f4ff;
-            border-radius: 8px;
-        }
-        
-        .human-verification input {
-            width: auto;
-            margin-right: 12px;
         }
         
         .submit-button {
@@ -583,7 +232,11 @@
             width: 100%;
             max-width: 280px;
             margin: 30px auto 0;
-            box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
         .submit-button:hover {
@@ -592,71 +245,44 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
         
+        .submit-button:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .status-message {
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: none;
+        }
+        
+        .status-success {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: var(--success);
+            border: 1px solid var(--success);
+            display: block;
+        }
+        
+        .status-error {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: var(--error);
+            border: 1px solid var(--error);
+            display: block;
+        }
+        
         /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 70px 0 30px;
-            transition: var(--transition);
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 12px;
-        }
-        
-        .footer-column h3:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: #adb5bd;
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-        
-        .footer-links a i {
-            margin-right: 10px;
-            width: 20px;
             text-align: center;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #adb5bd;
-            font-size: 1rem;
+            margin-top: 40px;
+            color: var(--gray);
+            font-size: 0.95rem;
+            width: 100%;
+            padding: 20px;
         }
         
         /* Language switch animation */
@@ -671,47 +297,25 @@
         }
         
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero {
-                padding: 80px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-        }
-        
         @media (max-width: 768px) {
             .form-group {
                 flex: 1 0 100%;
             }
             
-            .service-card, .product-card {
-                max-width: 500px;
-                margin: 0 auto;
-            }
-            
-            .top-bar {
-                flex-wrap: wrap;
-            }
-            
-            .language-selector {
-                order: 3;
-                margin-top: 15px;
-                width: 100%;
-                justify-content: center;
-            }
-            
             .form-container {
                 padding: 25px;
+            }
+            
+            .contact-header {
+                padding: 20px;
+            }
+            
+            .contact-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
             }
         }
     </style>
@@ -719,342 +323,135 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="top-bar">
-                <div class="logo">
-                    <i class="fas fa-cogs"></i>
-                    <span id="company-name">EnterpriseServices</span>
-                </div>
-                <ul class="nav-links">
-                    <li class="dropdown">
-                        <a href="#"><i class="fas fa-cube"></i> <span data-i18n="products">Products</span></a>
-                        <div class="dropdown-content">
-                            <a href="#"><i class="fas fa-window-restore"></i> <span data-i18n="applications">Applications</span></a>
-                            <a href="#"><i class="fas fa-graduation-cap"></i> <span data-i18n="competences">Competences</span></a>
-                            <a href="#"><i class="fas fa-building"></i> <span data-i18n="company">Company</span></a>
-                        </div>
-                    </li>
-                    <li><a href="#services"><i class="fas fa-concierge-bell"></i> <span data-i18n="services">Services</span></a></li>
-                    <li><a href="#"><i class="fas fa-info-circle"></i> <span data-i18n="about">About</span></a></li>
-                    <li><a href="#contact"><i class="fas fa-headset"></i> <span data-i18n="support">Support</span></a></li>
-                </ul>
-                <div class="language-selector">
-                    <div class="language-flags">
-                        <div class="lang-btn en active" data-lang="en">EN</div>
-                        <div class="lang-btn de" data-lang="de">DE</div>
-                        <div class="lang-btn zh" data-lang="zh">中文</div>
-                    </div>
-                </div>
-            </div>
+        <div class="logo">
+            <i class="fas fa-headset"></i>
+            <span id="company-name">EnterpriseServices</span>
+        </div>
+        <div class="language-selector">
+            <div class="lang-btn en active" data-lang="en">EN</div>
+            <div class="lang-btn de" data-lang="de">DE</div>
+            <div class="lang-btn zh" data-lang="zh">中文</div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1 data-i18n="hero_title">Professional Services & Maintenance</h1>
-            <p data-i18n="hero_desc">Enterprise-grade solutions for your business needs. Explore our services and products, or get in touch with our support team.</p>
-            <a href="#contact" class="cta-button" data-i18n="contact_cta">Contact Us Today</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="services_title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-i18n="maintenance">System Maintenance</h3>
-                        <p data-i18n="maintenance_desc">Proactive monitoring and maintenance to ensure your systems run smoothly and efficiently.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature1">24/7 system monitoring</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature2">Regular performance optimization</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature3">Security updates and patches</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature4">Emergency support services</span></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-i18n="security">Security Solutions</h3>
-                        <p data-i18n="security_desc">Comprehensive security services to protect your business from cyber threats.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature5">Threat detection and prevention</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature6">Data encryption services</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature7">Compliance management</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature8">Security audits and assessments</span></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 data-i18n="cloud">Cloud Services</h3>
-                        <p data-i18n="cloud_desc">Scalable cloud solutions to enhance your business agility and efficiency.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature9">Cloud migration services</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature10">Infrastructure management</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature11">Backup and disaster recovery</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span data-i18n="feature12">Hybrid cloud solutions</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products-section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="products_title">Enterprise Solutions</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-header">
-                        <h3><i class="fas fa-window-restore"></i> <span data-i18n="applications">Business Applications</span></h3>
-                    </div>
-                    <div class="product-body">
-                        <p data-i18n="applications_desc">Comprehensive suite of enterprise applications designed to streamline your business operations.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> <span data-i18n="product1">ERP Solutions</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="product2">CRM Platforms</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="product3">Business Intelligence</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="product4">Workflow Automation</span></li>
-                        </ul>
-                        <div class="product-price" data-i18n="custom_price">Custom Pricing</div>
-                        <a href="#contact" class="product-button" data-i18n="request_info">Request Info</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-header">
-                        <h3><i class="fas fa-graduation-cap"></i> <span data-i18n="competences">Professional Training</span></h3>
-                    </div>
-                    <div class="product-body">
-                        <p data-i18n="competences_desc">Specialized expertise and services to enhance your team's capabilities.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> <span data-i18n="product5">Technical Training</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="product6">Certification Programs</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="product7">Consulting Services</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="product8">Implementation Support</span></li>
-                        </ul>
-                        <div class="product-price" data-i18n="from_price">From <span>€199</span>/user</div>
-                        <a href="#contact" class="product-button" data-i18n="get_started">Get Started</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-header">
-                        <h3><i class="fas fa-building"></i> <span data-i18n="company">Enterprise Solutions</span></h3>
-                    </div>
-                    <div class="product-body">
-                        <p data-i18n="company_desc">Tailored solutions for your organization's unique structure and needs.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> <span data-i18n="product9">Custom Development</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="product10">System Integration</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="product11">Infrastructure Management</span></li>
-                            <li><i class="fas fa-check"></i> <span data-i18n="product12">Ongoing Support</span></li>
-                        </ul>
-                        <div class="product-price" data-i18n="custom_price">Custom Pricing</div>
-                        <a href="#contact" class="product-button" data-i18n="contact_sales">Contact Sales</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="divider container"></div>
-
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="contact_title">Contact Us</h2>
-            <div class="form-container">
-                <h3 class="form-title" data-i18n="contact_subtitle">Have questions? Get in touch with our team</h3>
+    <section class="contact-section">
+        <div class="contact-header">
+            <h1 data-i18n="contact_title">Contact Us</h1>
+            <div class="divider"></div>
+            <p data-i18n="contact_subtitle">Have questions? Get in touch with our team</p>
+        </div>
+        
+        <div class="form-container">
+            <div id="status-message" class="status-message"></div>
+            
+            <form id="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="subject" class="required">
+                            <i class="fas fa-tag"></i> 
+                            <span data-i18n="subject">Subject</span>
+                        </label>
+                        <input type="text" id="subject" class="prefilled" value="SRV-2023-08-0251" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="title">
+                            <i class="fas fa-user-tie"></i> 
+                            <span data-i18n="title">Title</span>
+                        </label>
+                        <select id="title">
+                            <option selected data-i18n="not_specified">Not specified</option>
+                            <option data-i18n="mr">Mr.</option>
+                            <option data-i18n="mrs">Mrs.</option>
+                            <option data-i18n="ms">Ms.</option>
+                        </select>
+                    </div>
+                </div>
                 
-                <form id="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="subject" class="required" data-i18n="subject">Subject</label>
-                            <input type="text" id="subject" class="prefilled" value="SRV-2023-08-0251" readonly>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="title" data-i18n="title">Title</label>
-                            <select id="title">
-                                <option selected data-i18n="not_specified">Not specified</option>
-                                <option data-i18n="mr">Mr.</option>
-                                <option data-i18n="mrs">Mrs.</option>
-                                <option data-i18n="ms">Ms.</option>
-                                <option data-i18n="dr">Dr.</option>
-                            </select>
-                        </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name" class="required">
+                            <i class="fas fa-user"></i> 
+                            <span data-i18n="name">Name</span>
+                        </label>
+                        <input type="text" id="name" data-i18n-placeholder="name_placeholder" placeholder="Enter your full name" required>
                     </div>
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name" class="required" data-i18n="name">Name</label>
-                            <input type="text" id="name" data-i18n-placeholder="name_placeholder" placeholder="Enter your full name">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company" class="required" data-i18n="company">Company</label>
-                            <input type="text" id="company" data-i18n-placeholder="company_placeholder" placeholder="Enter your company name">
-                        </div>
+                    <div class="form-group">
+                        <label for="company" class="required">
+                            <i class="fas fa-building"></i> 
+                            <span data-i18n="company">Company</span>
+                        </label>
+                        <input type="text" id="company" data-i18n-placeholder="company_placeholder" placeholder="Enter your company name" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="country" class="required">
+                            <i class="fas fa-globe"></i> 
+                            <span data-i18n="country">Country</span>
+                        </label>
+                        <select id="country" required>
+                            <option value="germany" selected data-i18n="germany">Germany</option>
+                            <option value="usa" data-i18n="usa">United States</option>
+                            <option value="china" data-i18n="china">China</option>
+                        </select>
                     </div>
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="country" class="required" data-i18n="country">Country</label>
-                            <select id="country">
-                                <option value="china" data-i18n="china">China</option>
-                                <option value="germany" selected data-i18n="germany">Germany</option>
-                                <option value="usa" data-i18n="usa">United States</option>
-
-
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="required" data-i18n="email">Email address</label>
-                            <input type="email" id="email" data-i18n-placeholder="email_placeholder" placeholder="Enter your email">
-                        </div>
+                    <div class="form-group">
+                        <label for="email" class="required">
+                            <i class="fas fa-envelope"></i> 
+                            <span data-i18n="email">Email address</span>
+                        </label>
+                        <input type="email" id="email" data-i18n-placeholder="email_placeholder" placeholder="Enter your email" required>
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone" data-i18n="phone">Phone</label>
-                            <input type="tel" id="phone" data-i18n-placeholder="phone_placeholder" placeholder="Enter your phone number">
-                        </div>
-                        <div class="form-group">
-                            <label for="department" data-i18n="department">Department</label>
-                            <select id="department">
-                                <option value="" data-i18n="select_department">Select Department</option>
-                                <option value="sales" data-i18n="sales">Sales</option>
-                                <option value="support" data-i18n="support">Technical Support</option>
-                                <option value="billing" data-i18n="billing">Billing</option>
-                                <option value="other" data-i18n="other">Other</option>
-                            </select>
-                        </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">
+                            <i class="fas fa-phone"></i> 
+                            <span data-i18n="phone">Phone</span>
+                        </label>
+                        <input type="tel" id="phone" data-i18n-placeholder="phone_placeholder" placeholder="Enter your phone number">
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <label for="message" class="required" data-i18n="message">Message</label>
-                            <textarea id="message" rows="6" data-i18n-placeholder="message_placeholder" placeholder="Enter your message"></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="department">
+                            <i class="fas fa-sitemap"></i> 
+                            <span data-i18n="department">Department</span>
+                        </label>
+                        <select id="department">
+                            <option value="" selected data-i18n="select_department">Select Department</option>
+                            <option value="sales" data-i18n="sales">Sales</option>
+                            <option value="support" data-i18n="support">Technical Support</option>
+                            <option value="billing" data-i18n="billing">Billing</option>
+                            <option value="other" data-i18n="other">Other</option>
+                        </select>
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <label data-i18n="upload">Upload documents</label>
-                            <div class="file-upload" id="file-upload-area">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <p data-i18n="upload_desc">Drag & drop files here or click to browse</p>
-                                <small data-i18n="upload_size">Max file size: 10MB</small>
-                                
-                                <div class="file-actions">
-                                    <span class="file-action" data-i18n="show">Show</span>
-                                    <span class="file-action" data-i18n="edit">Edit</span>
-                                    <span class="file-action" data-i18n="print">Print</span>
-                                    <span class="file-action" data-i18n="fill">Fill</span>
-                                    <span class="file-action" data-i18n="date">Date</span>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="message" class="required">
+                            <i class="fas fa-comment"></i> 
+                            <span data-i18n="message">Message</span>
+                        </label>
+                        <textarea id="message" rows="6" data-i18n-placeholder="message_placeholder" placeholder="Enter your message" required></textarea>
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="callback">
-                                <label for="callback" data-i18n="callback">Please call me back.</label>
-                            </div>
-                            
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="policy" required>
-                                <label for="policy" class="required" data-i18n="policy">I agree with the privacy policy.</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group full-width">
-                            <div class="human-verification">
-                                <input type="checkbox" id="human">
-                                <label for="human" data-i18n="human">I am human</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="submit-button" data-i18n="submit">Submit Request</button>
-                </form>
-            </div>
+                </div>
+                
+                <button type="submit" class="submit-button" id="submit-btn" data-i18n="submit">
+                    <i class="fas fa-paper-plane"></i> 
+                    <span>Submit Request</span>
+                </button>
+            </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3 data-i18n="footer_title">EnterpriseServices</h3>
-                    <p data-i18n="footer_desc">Providing enterprise solutions since 2010. We specialize in business applications, maintenance, and support services.</p>
-                    <div class="social-links" style="margin-top: 20px; display: flex; gap: 15px;">
-                        <a href="#" style="color: #adb5bd;"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" style="color: #adb5bd;"><i class="fab fa-twitter"></i></a>
-                        <a href="#" style="color: #adb5bd;"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" style="color: #adb5bd;"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 data-i18n="quick_links">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="home">Home</span></a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> <span data-i18n="services">Services</span></a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="products">Products</span></a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="about">About</span></a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> <span data-i18n="contact">Contact</span></a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 data-i18n="services">Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="maintenance">System Maintenance</span></a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="security">Security Solutions</span></a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="cloud">Cloud Services</span></a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="consulting">Consulting</span></a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="training">Training</span></a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 data-i18n="contact_us">Contact Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span data-i18n="address">Enterprise Street 123, Berlin</span></a></li>
-                        <li><a href="tel:+49123456789"><i class="fas fa-phone"></i> +49 123 456 789</a></li>
-                        <li><a href="mailto:info@enterpriseservices.com"><i class="fas fa-envelope"></i> info@enterpriseservices.com</a></li>
-                        <li><a href="#"><i class="fas fa-clock"></i> <span data-i18n="hours">Mon-Fri: 9:00 AM - 6:00 PM</span></a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                &copy; 2023 <span data-i18n="company_name">EnterpriseServices</span>. <span data-i18n="rights">All rights reserved.</span> | <span data-i18n="designed">Designed with</span> <i class="fas fa-heart" style="color: #ff6b00;"></i>
-            </div>
-        </div>
+        <p>&copy; 2023 <span data-i18n="company_name">EnterpriseServices</span>. <span data-i18n="rights">All rights reserved.</span></p>
     </footer>
 
     <script>
@@ -1062,56 +459,6 @@
         const translations = {
             en: {
                 "company-name": "EnterpriseServices",
-                "products": "Products",
-                "applications": "Applications",
-                "competences": "Competences",
-                "company": "Company",
-                "services": "Services",
-                "about": "About",
-                "support": "Support",
-                "hero_title": "Professional Services & Maintenance",
-                "hero_desc": "Enterprise-grade solutions for your business needs. Explore our services and products, or get in touch with our support team.",
-                "contact_cta": "Contact Us Today",
-                "services_title": "Our Services",
-                "maintenance": "System Maintenance",
-                "maintenance_desc": "Proactive monitoring and maintenance to ensure your systems run smoothly and efficiently.",
-                "feature1": "24/7 system monitoring",
-                "feature2": "Regular performance optimization",
-                "feature3": "Security updates and patches",
-                "feature4": "Emergency support services",
-                "security": "Security Solutions",
-                "security_desc": "Comprehensive security services to protect your business from cyber threats.",
-                "feature5": "Threat detection and prevention",
-                "feature6": "Data encryption services",
-                "feature7": "Compliance management",
-                "feature8": "Security audits and assessments",
-                "cloud": "Cloud Services",
-                "cloud_desc": "Scalable cloud solutions to enhance your business agility and efficiency.",
-                "feature9": "Cloud migration services",
-                "feature10": "Infrastructure management",
-                "feature11": "Backup and disaster recovery",
-                "feature12": "Hybrid cloud solutions",
-                "products_title": "Enterprise Solutions",
-                "applications_desc": "Comprehensive suite of enterprise applications designed to streamline your business operations.",
-                "product1": "ERP Solutions",
-                "product2": "CRM Platforms",
-                "product3": "Business Intelligence",
-                "product4": "Workflow Automation",
-                "custom_price": "Custom Pricing",
-                "request_info": "Request Info",
-                "competences_desc": "Specialized expertise and services to enhance your team's capabilities.",
-                "product5": "Technical Training",
-                "product6": "Certification Programs",
-                "product7": "Consulting Services",
-                "product8": "Implementation Support",
-                "from_price": "From <span>€199</span>/user",
-                "get_started": "Get Started",
-                "company_desc": "Tailored solutions for your organization's unique structure and needs.",
-                "product9": "Custom Development",
-                "product10": "System Integration",
-                "product11": "Infrastructure Management",
-                "product12": "Ongoing Support",
-                "contact_sales": "Contact Sales",
                 "contact_title": "Contact Us",
                 "contact_subtitle": "Have questions? Get in touch with our team",
                 "subject": "Subject",
@@ -1120,7 +467,6 @@
                 "mr": "Mr.",
                 "mrs": "Mrs.",
                 "ms": "Ms.",
-                "dr": "Dr.",
                 "name": "Name",
                 "name_placeholder": "Enter your full name",
                 "company": "Company",
@@ -1128,13 +474,11 @@
                 "country": "Country",
                 "germany": "Germany",
                 "usa": "United States",
-                "uk": "United Kingdom",
-                "france": "France",
-                "spain": "Spain",
-                "italy": "Italy",
+                "china": "China",
                 "department": "Department",
                 "select_department": "Select Department",
                 "sales": "Sales",
+                "support": "Technical Support",
                 "billing": "Billing",
                 "other": "Other",
                 "email": "Email address",
@@ -1143,84 +487,15 @@
                 "phone_placeholder": "Enter your phone number",
                 "message": "Message",
                 "message_placeholder": "Enter your message",
-                "upload": "Upload documents",
-                "upload_desc": "Drag & drop files here or click to browse",
-                "upload_size": "Max file size: 10MB",
-                "show": "Show",
-                "edit": "Edit",
-                "print": "Print",
-                "fill": "Fill",
-                "date": "Date",
-                "callback": "Please call me back.",
-                "policy": "I agree with the privacy policy.",
-                "human": "I am human",
                 "submit": "Submit Request",
-                "footer_title": "EnterpriseServices",
-                "footer_desc": "Providing enterprise solutions since 2010. We specialize in business applications, maintenance, and support services.",
-                "quick_links": "Quick Links",
-                "home": "Home",
-                "contact": "Contact",
-                "consulting": "Consulting",
-                "training": "Training",
-                "contact_us": "Contact Us",
-                "address": "Enterprise Street 123, Berlin",
-                "hours": "Mon-Fri: 9:00 AM - 6:00 PM",
                 "company_name": "EnterpriseServices",
                 "rights": "All rights reserved.",
-                "designed": "Designed with"
+                "form_error": "Please fill in all required fields",
+                "submit_success": "Thank you! Your message has been submitted successfully.",
+                "submit_error": "Error submitting form. Please try again."
             },
             de: {
                 "company-name": "EnterpriseServices",
-                "products": "Produkte",
-                "applications": "Anwendungen",
-                "competences": "Kompetenzen",
-                "company": "Unternehmen",
-                "services": "Dienstleistungen",
-                "about": "Über uns",
-                "support": "Support",
-                "hero_title": "Professionelle Dienstleistungen und Wartung",
-                "hero_desc": "Unternehmenslösungen für Ihre geschäftlichen Anforderungen. Entdecken Sie unsere Dienstleistungen und Produkte oder kontaktieren Sie unser Support-Team.",
-                "contact_cta": "Kontaktieren Sie uns",
-                "services_title": "Unsere Dienstleistungen",
-                "maintenance": "Systemwartung",
-                "maintenance_desc": "Proaktive Überwachung und Wartung, um einen reibungslosen und effizienten Betrieb Ihrer Systeme zu gewährleisten.",
-                "feature1": "24/7 Systemüberwachung",
-                "feature2": "Regelmäßige Leistungsoptimierung",
-                "feature3": "Sicherheitsupdates und Patches",
-                "feature4": "Notfall-Support-Dienste",
-                "security": "Sicherheitslösungen",
-                "security_desc": "Umfassende Sicherheitsdienste zum Schutz Ihres Unternehmens vor Cyber-Bedrohungen.",
-                "feature5": "Bedrohungserkennung und -prävention",
-                "feature6": "Datenverschlüsselungsdienste",
-                "feature7": "Compliance-Management",
-                "feature8": "Sicherheitsaudits und -bewertungen",
-                "cloud": "Cloud-Dienste",
-                "cloud_desc": "Skalierbare Cloud-Lösungen zur Steigerung Ihrer geschäftlichen Agilität und Effizienz.",
-                "feature9": "Cloud-Migrationsdienste",
-                "feature10": "Infrastrukturmanagement",
-                "feature11": "Backup und Disaster Recovery",
-                "feature12": "Hybrid-Cloud-Lösungen",
-                "products_title": "Unternehmenslösungen",
-                "applications_desc": "Umfassende Suite von Unternehmensanwendungen zur Optimierung Ihrer Geschäftsabläufe.",
-                "product1": "ERP-Lösungen",
-                "product2": "CRM-Plattformen",
-                "product3": "Business Intelligence",
-                "product4": "Workflow-Automatisierung",
-                "custom_price": "Individuelles Angebot",
-                "request_info": "Information anfordern",
-                "competences_desc": "Spezialisiertes Know-how und Dienstleistungen zur Verbesserung der Fähigkeiten Ihres Teams.",
-                "product5": "Technische Schulungen",
-                "product6": "Zertifizierungsprogramme",
-                "product7": "Beratungsdienstleistungen",
-                "product8": "Implementierungsunterstützung",
-                "from_price": "Ab <span>€199</span>/Benutzer",
-                "get_started": "Jetzt starten",
-                "company_desc": "Maßgeschneiderte Lösungen für die einzigartige Struktur und die Bedürfnisse Ihres Unternehmens.",
-                "product9": "Individuelle Entwicklung",
-                "product10": "Systemintegration",
-                "product11": "Infrastrukturmanagement",
-                "product12": "Laufende Unterstützung",
-                "contact_sales": "Vertrieb kontaktieren",
                 "contact_title": "Kontaktieren Sie uns",
                 "contact_subtitle": "Haben Sie Fragen? Kontaktieren Sie unser Team",
                 "subject": "Betreff",
@@ -1229,7 +504,6 @@
                 "mr": "Herr",
                 "mrs": "Frau",
                 "ms": "Frau",
-                "dr": "Dr.",
                 "name": "Name",
                 "name_placeholder": "Vollständigen Namen eingeben",
                 "company": "Firma",
@@ -1241,6 +515,7 @@
                 "department": "Abteilung",
                 "select_department": "Abteilung auswählen",
                 "sales": "Vertrieb",
+                "support": "Technischer Support",
                 "billing": "Abrechnung",
                 "other": "Andere",
                 "email": "E-Mail-Adresse",
@@ -1249,84 +524,15 @@
                 "phone_placeholder": "Telefonnummer eingeben",
                 "message": "Nachricht",
                 "message_placeholder": "Ihre Nachricht eingeben",
-                "upload": "Dokumente hochladen",
-                "upload_desc": "Dateien hierher ziehen oder klicken, um zu durchsuchen",
-                "upload_size": "Maximale Dateigröße: 10MB",
-                "show": "Anzeigen",
-                "edit": "Bearbeiten",
-                "print": "Drucken",
-                "fill": "Ausfüllen",
-                "date": "Datum",
-                "callback": "Bitte rufen Sie mich zurück.",
-                "policy": "Ich stimme der Datenschutzrichtlinie zu.",
-                "human": "Ich bin ein Mensch",
                 "submit": "Anfrage senden",
-                "footer_title": "EnterpriseServices",
-                "footer_desc": "Bietet seit 2010 Unternehmenslösungen an. Wir sind spezialisiert auf Geschäftsanwendungen, Wartung und Support-Services.",
-                "quick_links": "Schnelllinks",
-                "home": "Startseite",
-                "contact": "Kontakt",
-                "consulting": "Beratung",
-                "training": "Schulungen",
-                "contact_us": "Kontaktieren Sie uns",
-                "address": "Enterprise Straße 123, Berlin",
-                "hours": "Mo-Fr: 9:00 - 18:00 Uhr",
                 "company_name": "EnterpriseServices",
                 "rights": "Alle Rechte vorbehalten.",
-                "designed": "Entworfen mit"
+                "form_error": "Bitte füllen Sie alle erforderlichen Felder aus",
+                "submit_success": "Vielen Dank! Ihre Nachricht wurde erfolgreich übermittelt.",
+                "submit_error": "Fehler beim Senden des Formulars. Bitte versuchen Sie es erneut."
             },
             zh: {
                 "company-name": "企业服务",
-                "products": "产品",
-                "applications": "应用程序",
-                "competences": "能力服务",
-                "company": "企业方案",
-                "services": "服务",
-                "about": "关于我们",
-                "support": "技术支持",
-                "hero_title": "专业服务与维护",
-                "hero_desc": "满足您业务需求的企业级解决方案。探索我们的服务和产品，或联系我们的支持团队。",
-                "contact_cta": "立即联系我们",
-                "services_title": "我们的服务",
-                "maintenance": "系统维护",
-                "maintenance_desc": "主动监控和维护，确保您的系统平稳高效运行。",
-                "feature1": "24/7系统监控",
-                "feature2": "定期性能优化",
-                "feature3": "安全更新和补丁",
-                "feature4": "紧急支持服务",
-                "security": "安全解决方案",
-                "security_desc": "全面的安全服务，保护您的业务免受网络威胁。",
-                "feature5": "威胁检测与预防",
-                "feature6": "数据加密服务",
-                "feature7": "合规管理",
-                "feature8": "安全审计与评估",
-                "cloud": "云服务",
-                "cloud_desc": "可扩展的云解决方案，提高您的业务敏捷性和效率。",
-                "feature9": "云迁移服务",
-                "feature10": "基础设施管理",
-                "feature11": "备份与灾难恢复",
-                "feature12": "混合云解决方案",
-                "products_title": "企业解决方案",
-                "applications_desc": "全面的企业应用套件，旨在优化您的业务流程。",
-                "product1": "ERP解决方案",
-                "product2": "CRM平台",
-                "product3": "商业智能",
-                "product4": "工作流自动化",
-                "custom_price": "定制报价",
-                "request_info": "索取资料",
-                "competences_desc": "专业知识和技能服务，提升您的团队能力。",
-                "product5": "技术培训",
-                "product6": "认证项目",
-                "product7": "咨询服务",
-                "product8": "实施支持",
-                "from_price": "起价<span>€199</span>/用户",
-                "get_started": "立即开始",
-                "company_desc": "根据您企业的独特结构和需求量身定制的解决方案。",
-                "product9": "定制开发",
-                "product10": "系统集成",
-                "product11": "基础设施管理",
-                "product12": "持续支持",
-                "contact_sales": "联系销售",
                 "contact_title": "联系我们",
                 "contact_subtitle": "有问题吗？联系我们的团队",
                 "subject": "主题",
@@ -1335,22 +541,18 @@
                 "mr": "先生",
                 "mrs": "女士",
                 "ms": "女士",
-                "dr": "博士",
                 "name": "姓名",
                 "name_placeholder": "请输入您的全名",
                 "company": "公司",
                 "company_placeholder": "请输入公司名称",
                 "country": "国家",
                 "germany": "德国",
-                "china": "中国",
                 "usa": "美国",
-                "uk": "英国",
-                "france": "法国",
-                "spain": "西班牙",
-                "italy": "意大利",
+                "china": "中国",
                 "department": "部门",
                 "select_department": "选择部门",
                 "sales": "销售",
+                "support": "技术支持",
                 "billing": "财务",
                 "other": "其他",
                 "email": "电子邮箱",
@@ -1359,31 +561,12 @@
                 "phone_placeholder": "请输入电话号码",
                 "message": "消息",
                 "message_placeholder": "请输入您的消息",
-                "upload": "上传文件",
-                "upload_desc": "拖放文件到此处或点击浏览",
-                "upload_size": "最大文件大小：10MB",
-                "show": "显示",
-                "edit": "编辑",
-                "print": "打印",
-                "fill": "填写",
-                "date": "日期",
-                "callback": "请回电给我",
-                "policy": "我同意隐私政策",
-                "human": "我是人类",
                 "submit": "提交请求",
-                "footer_title": "企业服务",
-                "footer_desc": "自2010年起提供企业解决方案。我们专注于商业应用、维护和支持服务。",
-                "quick_links": "快速链接",
-                "home": "首页",
-                "contact": "联系",
-                "consulting": "咨询",
-                "training": "培训",
-                "contact_us": "联系我们",
-                "address": "企业大道123号，柏林",
-                "hours": "周一至周五: 9:00 - 18:00",
                 "company_name": "企业服务",
                 "rights": "保留所有权利",
-                "designed": "设计"
+                "form_error": "请填写所有必填字段",
+                "submit_success": "感谢您！您的消息已成功提交。",
+                "submit_error": "提交表单时出错。请再试一次。"
             }
         };
 
@@ -1404,7 +587,7 @@
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[lang][key]) {
-                        el.innerHTML = translations[lang][key];
+                        el.textContent = translations[lang][key];
                     }
                 });
                 
@@ -1439,9 +622,7 @@
                 });
                 
                 // 移除动画类
-                setTimeout(() => {
-                    document.body.classList.remove('language-change');
-                }, 300);
+                document.body.classList.remove('language-change');
             }, 300);
         }
 
@@ -1452,30 +633,71 @@
             });
         });
 
-        // 表单验证
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+// 表单提交处理
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submit-btn');
+        const statusMessage = document.getElementById('status-message');
+        statusMessage.className = 'status-message';
+        
+        // 禁用提交按钮
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> <span>${translations[currentLang]['submit']}</span>`;
+        
+        // 获取表单数据
+        const formData = {
+            subject: document.getElementById('subject').value,
+            title: document.getElementById('title').value,
+            name: document.getElementById('name').value,
+            company: document.getElementById('company').value,
+            country: document.getElementById('country').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            department: document.getElementById('department').value,
+            message: document.getElementById('message').value,
+            language: currentLang
+        };
+        
+        try {
+            // 真实API调用
+            const response = await fetch('http://localhost:3000/api/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // 如果需要认证，可以添加认证头
+                    // 'Authorization': 'Bearer your-token-here'
+                },
+                body: JSON.stringify(formData)
+            });
             
-            const name = document.getElementById('name').value;
-            const company = document.getElementById('company').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            const policy = document.getElementById('policy').checked;
+            const data = await response.json();
             
-            if (!name || !company || !email || !message || !policy) {
-                alert(translations[currentLang]['form_error'] || '请填写所有必填字段并接受隐私政策');
-                return;
+            if (!response.ok) {
+                throw new Error(data.message || 'API request failed');
             }
             
-            // 表单验证通过 - 显示成功消息
-            alert(translations[currentLang]['form_success'] || '感谢您的提交！我们将尽快与您联系');
+            // 显示成功消息
+            statusMessage.textContent = translations[currentLang]['submit_success'];
+            statusMessage.className = 'status-message status-success';
+            
+            // 重置表单
             this.reset();
-        });
-        
-        // 文件上传交互
-        document.getElementById('file-upload-area').addEventListener('click', function() {
-            alert(translations[currentLang]['upload_alert'] || '文件上传功能将在此处实现');
-        });
-    </script>
-</body>
-</html>
+            document.getElementById('subject').value = "SRV-2023-08-0251";
+            
+            // 3秒后隐藏消息
+            setTimeout(() => {
+                statusMessage.style.display = 'none';
+            }, 5000);
+        } catch (error) {
+            // 显示错误消息
+            statusMessage.textContent = translations[currentLang]['submit_error'] + (error.message ? ` (${error.message})` : '');
+            statusMessage.className = 'status-message status-error';
+            console.error('Form submission error:', error);
+        } finally {
+            // 重新启用提交按钮
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> <span>${translations[currentLang]['submit']}</span>`;
+        }
+    });
+</script>
